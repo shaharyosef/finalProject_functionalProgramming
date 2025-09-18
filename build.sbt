@@ -1,12 +1,20 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
+name := "finalproject"
 
-ThisBuild / scalaVersion := "2.12.19"
+version := "0.1"
 
-lazy val root = (project in file("."))
-  .settings(
-    name := "finalproject"
-  )
+scalaVersion := "2.12.19"
 
-libraryDependencies += "org.apache.spark" %% "spark-core" % "3.3.0"
-libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.3.0"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.17" % Test
+// apache Spark dependencies for data processing
+libraryDependencies ++= Seq(
+  "org.apache.spark" %% "spark-core" % "3.4.0",
+  "org.apache.spark" %% "spark-sql" % "3.4.0",
+  "org.scalatest" %% "scalatest" % "3.2.15" % Test
+)
+
+// compiler options for better functional programming support
+scalacOptions ++= Seq(
+  "-deprecation",
+  "-feature",
+  "-unchecked",
+  "-Xlint"
+)
